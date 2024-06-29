@@ -1,0 +1,44 @@
+stages:
+  - dockerize
+  - deploy_docker
+
+dockerized_orav_backend:
+  stage: dockerize
+  image: docker:20.10.16
+  before_script:
+    - export IMAGE_NAME=$DOCKER_USERNAME/orav_backend
+  services:
+    - docker:20.10.16-dind
+  script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker build -t $IMAGE_NAME .
+    - docker push $IMAGE_NAME
+  only:
+    - main
+  tags:
+    - eclit
+
+
+deploy_compose_orav_backend_test:
+  stage: deploy_docker
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache openssh
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 400 ~/.ssh
+    - echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\tServerAliveInterval 120\n\tTCPKeepAlive no" > ~/.ssh/config'
+    - chmod 400 ~/.ssh
+    - export DEV_SERVER_IP=192.168.35.7
+    - export DEV_SSH_USER=root
+    - export DEV_WORKING_DIR=/home/orav/
+  script:
+    - ssh $DEV_SSH_USER@$DEV_SERVER_IP "mkdir -p $DEV_WORKING_DIR"
+    - scp docker-compose.yml $DEV_SSH_USER@$DEV_SERVER_IP:$DEV_WORKING_DIR
+    - ssh $DEV_SSH_USER@$DEV_SERVER_IP "cd $DEV_WORKING_DIR && docker compose -f docker-compose.yml pull && docker compose -f docker-compose.yml up -d && docker image prune -f -a"
+  only:
+    - main
+  tags:
+    - eclit

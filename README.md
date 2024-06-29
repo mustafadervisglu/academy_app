@@ -1,0 +1,40 @@
+## Özellikler
+- [x] Kimlik Doğrulama (Authentication)
+- [x] Rol Tabanlı Yetkilendirme (Role based authorization)
+- [x] Yenileme Token İşlemleri (Refresh token operations)
+- [x] MySQL Veritabanı Bağlantısı
+- [x] Entity Otomatik Yükleme ve Senkronizasyon (Auto load & sync entities)
+- [x] Swagger Dökümantasyon Entegrasyonu
+- [x] Yerel ve Geliştirme Ortam Ayarları (Env settings for local and dev)
+- [x] Sayfalama İşlevi (Pagination)
+- [x] Kullanıcı Ekleme (User Creation)
+- [x] Kullanıcı Bilgilerini Güncelleme (User Update)
+- [x] Kullanıcı Silme (User Deletion)
+- [x] Şifre Sıfırlama (Password Reset)
+- [x] Oturum Açma (Login)
+- [x] Oturum Kapatma (Logout)
+- [x] Kullanıcı Araştırma/Search İşlemleri (User Search Operations)
+- [x] Token Yönetimi (Token Management)
+- [x] Şifreleme ve Hashleme İşlemleri (Encryption and Hashing)
+- [x] Hata Yönetimi (Error Handling)
+- [x] Loglama (Graylog)
+- [x] Sentry Entegrasyonu (Sentry Integration)
+- [x] Docker Entegrasyonu (Docker Integration)
+- [x] CI/CD
+- [x] JWT
+- [x] Redis
+- [x] Mail
+- [x] Program Ekleme (Program Creation)
+- [x] Program Güncelleme (Program Update)
+- [x] Program Silme (Program Deletion)
+- [x] Program Araştırma/Search İşlemleri (Program Search Operations)
+- [x] Program Etkinlik Ekleme (Program Event Creation)
+- [x] Id ile Program getirme (Get Program by Id)
+- [x] Program Etkinlik Getirme (Get Program Events)
+- [x] Program Etkinlik Güncelleme (Program Event Update)
+- [x] Program Etkinlik Silme (Program Event Deletion)
+- [x] Program Etkinlik Araştırma/Search İşlemleri (Program Event Search Operations)
+- [ ] Program Etkinlik Katılımcı Ekleme (Program Event Participant Creation)
+- [ ] Program Etkinlik Katılımcı Güncelleme (Program Event Participant Update)
+- [ ] Program Etkinlik Katılımcı Silme (Program Event Participant Deletion)
+- [ ] Program Etkinlik Katılımcı Araştırma/Search İşlemleri (Program Event Participant Search Operations)

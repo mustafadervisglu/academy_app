@@ -1,0 +1,17 @@
+export enum Role {
+  SistemAdmin = 'SistemAdmin',
+  OperasyonAdmin = 'OperasyonAdmin',
+  TamZamanliEgitimci = 'TamZamanliEgitimci',
+  KismiZamanliEgitimci = 'KismiZamanliEgitimci',
+  KZEAdayi = 'KZEAdayi',
+  SozlesmeliKZE = 'SozlesmeliKZE',
+  Gozlemci = 'Gozlemci',
+  Stajyer = 'Stajyer',
+  Egitimci = 'Egitimci',
+  SupervizyonAlan = 'SupervizyonAlan',
+  SupervizyonVeren = 'SupervizyonVeren',
+  GrupSorumlusu = 'GrupSorumlusu',
+  SelaleAlan = 'SelaleAlan',
+  SelaleVeren = 'SelaleVeren',
+  UzmanKZE = 'UzmanKZE',
+}
